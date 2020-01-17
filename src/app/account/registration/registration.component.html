@@ -1,0 +1,58 @@
+<ion-content>
+  <form #registrationForm="ngForm">
+    <ion-grid>
+      <ion-row color="primary" class="justify-content-center">
+        <ion-col class="align-self-center" size-md="6" size-lg="5" size-xs="12">
+
+          <div class="logo" class="ion-text-center">
+            <h3>Create your account!</h3>
+          </div>
+
+          <div class="ion-padding">
+            <ion-item>
+              <ion-label position="floating">Name *</ion-label>
+              <ion-input name="name" type="text" [(ngModel)]="registration.name" #nameInput="ngModel" required>
+              </ion-input>
+            </ion-item>
+            <app-error-msg [control]="nameInput" fieldName="Name"></app-error-msg>
+
+            <ion-item>
+              <ion-label position="floating">Email *</ion-label>
+              <ion-input name="email" type="email" [(ngModel)]="registration.email" #emailInput="ngModel"
+                appEmailValidate required>
+              </ion-input>
+            </ion-item>
+            <app-error-msg [control]="emailInput" fieldName="Email"></app-error-msg>
+
+            <ion-item>
+              <ion-label position="floating">Password *</ion-label>
+              <ion-input name="password" type="password" [(ngModel)]="registration.password" #password="ngModel"
+                appPasswordValidate required>
+              </ion-input>
+            </ion-item>
+            <app-error-msg [control]="password" fieldName="Password"></app-error-msg>
+
+            <ion-item>
+              <ion-label position="floating">Confirm Password *</ion-label>
+              <ion-input name="confirm" type="password" [(ngModel)]="registration.cPassword" #cPasswordInput="ngModel"
+                appEqualvalidate="password" required>
+              </ion-input>
+            </ion-item>
+            <app-error-msg [control]="cPasswordInput" fieldName="Confirm Password"></app-error-msg>
+
+          </div>
+
+          <div class="ion-padding">
+            <ion-button size="large" type="submit" [disabled]="registrationForm.invalid" expand="block"
+              (click)="submit()">Register
+            </ion-button>
+          </div>
+          <div class="ion-text-center">
+            <ion-label>Already have an account? <a [routerLink]="['/login']">Back to login</a>
+            </ion-label>
+          </div>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  </form>
+</ion-content>

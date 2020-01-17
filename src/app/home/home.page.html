@@ -1,14 +1,39 @@
-<ion-header>
-  <ion-toolbar>
-    <ion-title>
-      Ionic Blank
-    </ion-title>
-  </ion-toolbar>
-</ion-header>
-
 <ion-content>
-  <div class="ion-padding">
-    The world is your oyster.
-    <p>If you get lost, the <a target="_blank" rel="noopener" href="https://ionicframework.com/docs/">docs</a> will be your guide.</p>
-  </div>
+
+    <ion-slides pager="true" [options]="slideOpts">
+        <ion-slide>
+            <img src="http://dummyimage.com/500x250.bmp/5fa2dd/ffffff" />
+        </ion-slide>
+
+        <ion-slide>
+            <img src="http://dummyimage.com/500x250.png/cc0000/ffffff" />
+        </ion-slide>
+
+        <ion-slide>
+            <img src="http://dummyimage.com/500x250.jpg/dddddd/000000" />
+        </ion-slide>
+
+        <ion-slide>
+            <img src="http://dummyimage.com/500x250.png/ff4444/ffffff" />
+        </ion-slide>
+    </ion-slides>
+
+
+
+    <ion-grid>
+        <ion-row>
+            <ion-col size-xs="6" *ngFor="let product of productList | slice:0:4">
+                <ion-card>
+                    <img [src]="product?.image" alt="">
+                    <ion-card-header>
+                        <ion-card-title>{{product?.name}}</ion-card-title>
+                    </ion-card-header>
+                    <ion-card-content>
+                        <ion-label>{{product?.price}}</ion-label>
+                    </ion-card-content>
+                </ion-card>
+            </ion-col>
+        </ion-row>
+    </ion-grid>
+
 </ion-content>
