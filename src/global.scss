@@ -16,7 +16,7 @@
 @import "~@ionic/angular/css/normalize.css";
 @import "~@ionic/angular/css/structure.css";
 @import "~@ionic/angular/css/typography.css";
-@import '~@ionic/angular/css/display.css';
+@import "~@ionic/angular/css/display.css";
 
 /* Optional CSS utils that can be commented out */
 @import "~@ionic/angular/css/padding.css";
@@ -24,3 +24,58 @@
 @import "~@ionic/angular/css/text-alignment.css";
 @import "~@ionic/angular/css/text-transformation.css";
 @import "~@ionic/angular/css/flex-utils.css";
+
+.error-msg {
+  color: red;
+}
+
+.logo {
+  padding: 15px;
+}
+
+:root {
+  --ion-safe-area-top: 20px;
+  --ion-safe-area-bottom: 22px;
+}
+.swiper-slide {
+  display: block;
+}
+ion-slide > h2 {
+  margin-top: 2.8rem;
+}
+ion-slide > img {
+  max-height: 50%;
+  max-width: 60%;
+  margin: 36px 0;
+}
+
+.input-error {
+  color: white;
+  font-weight: normal;
+  text-align: left;
+  background-color: red;
+  padding: 5px;
+  border-radius: 10px;
+  margin-top: 5px;
+}
+.bg {
+  padding: 25px;
+}
+
+.login-bg {
+  background-color: blue;
+  border-radius: 50px;
+  opacity: 50px;
+}
+
+.container-logo {
+  display: inline-block;
+  width: 100%;
+  img {
+    max-width: 150px;
+  }
+}
+
+.container {
+  margin-top: 75px;
+}

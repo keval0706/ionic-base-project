@@ -1,0 +1,25 @@
+<ion-content>
+    <ion-card *ngFor="let product of productList">
+        <img [src]="product?.image" alt="">
+        <ion-card-header>
+            <ion-card-subtitle>{{product?.category}}</ion-card-subtitle>
+            <ion-card-title>{{product?.name}}</ion-card-title>
+        </ion-card-header>
+        <ion-card-content>
+            <ion-label>{{product?.price}}</ion-label>
+            <ion-row>
+                <ion-button>
+                    <ion-icon slot="start" name="basket"></ion-icon>
+                    Buy Now
+                </ion-button>
+                <ion-button color="primary" fill="outline" (click)="removeFromCart(product.id)">
+                    <ion-icon slot="start" name="trash"></ion-icon>
+                    Remove
+                </ion-button>
+            </ion-row>
+        </ion-card-content>
+    </ion-card>
+    <div *ngIf="!productList || productList.length == 0">
+        <ion-label>No data found</ion-label>
+    </div>
+</ion-content>

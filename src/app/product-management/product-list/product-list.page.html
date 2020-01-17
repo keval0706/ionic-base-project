@@ -1,0 +1,32 @@
+<ion-content>
+  <ion-card *ngFor="let product of productList">
+    <img [src]="product?.image" alt="">
+    <ion-card-header>
+      <ion-card-title [routerLink]="['/shop/products/details/', product?.id]">{{product?.name}}</ion-card-title>
+      <ion-card-subtitle>{{product?.category}} |
+        {{product?.price}}</ion-card-subtitle>
+    </ion-card-header>
+    <ion-card-content>
+
+      <ion-row>
+        <ion-button>
+          <ion-icon slot="start" name="basket"></ion-icon>
+          Buy Now
+        </ion-button>
+        <ion-button color="primary" fill="outline" (click)="addToCart(product)">
+          <ion-icon slot="start" name="cart"></ion-icon>
+          Add to Cart
+        </ion-button>
+      </ion-row>
+    </ion-card-content>
+  </ion-card>
+  <ion-card class="ion-padding ion-text-center">
+    <ion-label *ngIf="productList.length === 0">No Data Found</ion-label>
+  </ion-card>
+  <ion-infinite-scroll threshold="100px" (ionInfinite)="loadData($event)">
+    <ion-infinite-scroll-content loadingSpinner="bubbles" loadingText="Loading more data...">
+
+    </ion-infinite-scroll-content>
+  </ion-infinite-scroll>
+
+</ion-content>

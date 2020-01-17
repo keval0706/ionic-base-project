@@ -1,0 +1,43 @@
+<ion-content>
+  <form #loginForm="ngForm">
+    <ion-grid>
+      <ion-row color="primary" class="justify-content-center">
+        <ion-col class="align-self-center" size-md="6" size-lg="5" size-xs="12">
+
+          <div class="logo" class="ion-text-center">
+            <h3>Login</h3>
+          </div>
+
+          <div class="ion-padding">
+            <ion-item>
+              <ion-label position="floating">Email *</ion-label>
+              <ion-input type="email" [(ngModel)]="login.email" name="email" #emailInput="ngModel" appEmailValidate
+                required>
+              </ion-input>
+            </ion-item>
+            <app-error-msg [control]="emailInput" fieldName="Email"></app-error-msg>
+
+            <ion-item>
+              <ion-label position="floating">Password *</ion-label>
+              <ion-input type="password" [(ngModel)]="login.password" name="password" #passwordInput="ngModel" required>
+              </ion-input>
+            </ion-item>
+            <app-error-msg [control]="passwordInput" fieldName="Password"></app-error-msg>
+          </div>
+
+          <div class="ion-padding">
+            <ion-button size="large" type="submit" [disabled]="loginForm.invalid" expand="block" (click)="submit()">
+              Login
+            </ion-button>
+          </div>
+
+          <div class="ion-text-center">
+            <ion-label>Not register with us? <a [routerLink]="['/registration']">Register</a>
+            </ion-label>
+          </div>
+
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  </form>
+</ion-content>
